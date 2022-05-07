@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  server:
+    restart: always
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile.dev
+    volumes:
+      - /app/node_modules
+      - .:/app
+    env_file:
+      - .env
+    ports:
+      - "4000:4000"
